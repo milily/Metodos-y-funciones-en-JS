@@ -28,7 +28,7 @@ const trabajador = {
     nombre: 'Jhon Smith',
     cargo: 'QA',
     empresa: {
-        ubicación: {
+        ubicacion: {
             comuna: 'Santiago',
             puesto: 'nº 24',
         },
@@ -42,3 +42,37 @@ const trabajador = {
     hijos: null,
 }
 
+function mensaje(trabajador){
+    const{
+        nombre,
+        cargo,
+        empresa:{
+            datos:{
+                nombre: nombreEmpresa,
+            }
+        },
+        gustos: [gusto1, ...resto],
+        hijos
+    } = trabajador
+
+    const nuevoHijo = hijos ? hijos : "no tiene hijos";
+    console.log(hijos)
+    return `El trabajador ${nombre} trabaja en ${nombreEmpresa} con cargo ${cargo} y 
+        le gusta ${gusto1}, ${resto.length} más y ${nuevoHijo}`
+}
+
+function mensaje2(trabajador){
+    const{
+        nombre,
+        cargo,
+        empresa:{
+            ubicacion:{
+                comuna,
+                puesto,
+            },
+            clientes:[cliente1, cliente2]
+        }
+    } = trabajador 
+
+    return `El trabajador ${nombre} va a su trabajo en ${comuna}, es ${cargo}, en el puesto ${puesto}, trabaja con ${cliente1} y ${cliente2}`
+}
